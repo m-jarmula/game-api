@@ -19,7 +19,6 @@ module Server
 
     def read_message
       while (message = @connection.recv)
-        puts "Received #{message}"
         if message != CONNECTION_CLOSE_SYMBOL
           on_message(@connection, message)
         else

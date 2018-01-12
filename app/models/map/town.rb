@@ -5,7 +5,7 @@ module Map
     end
 
     def self.to_api(current_user)
-      new(current_user)
+      new(current_user).to_api
     end
 
     def to_api
@@ -150,7 +150,7 @@ module Map
       }
     end
 
-    def self.players
+    def players
       User.all.joins(:player).map do |user|
         {
           height: 32,
@@ -158,7 +158,7 @@ module Map
           name: 'player' + user.id.to_s,
           properties: {
             user_id: user.id,
-            group: user.id == @current_user.id ? 'main_player' : 'players',
+            group: 'players',
             texture: 'player_spritesheet',
             walkingSpeed: 50
           },

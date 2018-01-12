@@ -2,7 +2,6 @@ class StatesController < ApplicationController
   before_action :state, only: %w(show)
 
   def show
-    binding.pry
     render json: @state.to_json
   end
 

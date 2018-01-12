@@ -7,7 +7,7 @@ module Websocket
     end
 
     def on_connect(connection)
-      STDERR.puts("#{connection.socket} has arrived")
+      STDERR.puts("#{connection.request} has arrived")
     end
 
     def on_disconnect

@@ -8,7 +8,6 @@ class MapsController < ApplicationController
   private
 
   def map
-    binding.pry
     @state = Map::Factory.get(name).to_api(current_user)
   end
 
