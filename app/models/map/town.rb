@@ -158,7 +158,7 @@ module Map
           name: 'player' + user.id.to_s,
           properties: {
             user_id: user.id,
-            group: 'players',
+            group: @current_user.id == user.id ? 'main_player' : 'players',
             texture: 'player_spritesheet',
             walkingSpeed: 50
           },
@@ -169,7 +169,7 @@ module Map
             walkingSpeed: 'int'
           },
           rotation: 0,
-          type: 'player',
+          type: @current_user.id == user.id ? 'main_player' : 'player',
           visible: true,
           width: 32,
           x: user.player.x,

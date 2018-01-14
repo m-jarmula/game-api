@@ -36,7 +36,8 @@ module State
           'players',
           'doors',
           'npcs',
-          'tools'
+          'tools',
+          'main_player'
         ],
         map: {
           key: 'level_tilemap',
