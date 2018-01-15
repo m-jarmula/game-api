@@ -155,7 +155,7 @@ module Map
         {
           height: 32,
           id: 1,
-          name: 'player' + user.id.to_s,
+          name: "player#{user.id.to_s}",
           properties: {
             user_id: user.id,
             group: @current_user.id == user.id ? 'main_player' : 'players',
