@@ -11,5 +11,9 @@ module Overrides
       params.require(:registration)
             .permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
+
+    def render_create_success
+      render json: @resource
+    end
   end
 end
