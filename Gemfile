@@ -10,6 +10,7 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 3.0'
+gem 'resque', require: 'resque/server'
 
 gem 'rack-cors', :require => 'rack/cors'
 gem 'devise_token_auth'
