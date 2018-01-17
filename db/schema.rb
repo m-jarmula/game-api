@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20180106144924) do
     t.float    "x",          limit: 24, default: 200.0, null: false
     t.float    "y",          limit: 24, default: 400.0, null: false
     t.string   "name"
+    t.boolean  "active",                default: true
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.index ["user_id"], name: "index_players_on_user_id", using: :btree

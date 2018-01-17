@@ -7,6 +7,7 @@ class CreatePlayers < ActiveRecord::Migration[5.0]
       t.float :x, default: 200, null: false
       t.float :y, default: 400, null: false
       t.string :name
+      t.boolean :active, default: true
 
       t.timestamps
     end

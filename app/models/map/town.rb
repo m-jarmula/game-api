@@ -151,30 +151,8 @@ module Map
     end
 
     def players
-      User.all.joins(:player).map do |user|
-        {
-          height: 32,
-          id: 1,
-          name: "player#{user.id.to_s}",
-          properties: {
-            user_id: user.id,
-            group: @current_user.id == user.id ? 'main_player' : 'players',
-            texture: 'player_spritesheet',
-            walkingSpeed: 50
-          },
-          propertytypes: {
-            user_id: 'int',
-            group: 'string',
-            texture: 'string',
-            walkingSpeed: 'int'
-          },
-          rotation: 0,
-          type: @current_user.id == user.id ? 'main_player' : 'player',
-          visible: true,
-          width: 32,
-          x: user.player.x,
-          y: user.player.y
-        }
+      Player.active_and_current_player(@current_user.player).joins(:user).map do |player|
+        PlayerSerializer.new(@current_user, player).to_api
       end
     end
   end
