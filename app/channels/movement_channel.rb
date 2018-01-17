@@ -11,6 +11,6 @@ class MovementChannel < ApplicationCable::Channel
   private
 
   def add_worker(user_id, position)
-    Resque.enqueue(Jobs::Channels::GameChannel::SaveMovePosition, user_id, position)
+    Resque.enqueue(Channels::GameChannel::SaveMovePosition, user_id, position)
   end
 end
