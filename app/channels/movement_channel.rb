@@ -5,7 +5,8 @@ class MovementChannel < ApplicationCable::Channel
 
   def receive(data)
     ActionCable.server.broadcast('movement_channel', data.fetch('message'))
-    add_worker(current_user.id, x: data.fetch('message')['x'], y: data.fetch('message')['y'])
+    current_user.player.update(x: data.fetch('message')['x'], y: data.fetch('message')['y'])
+    # add_worker(current_user.id, x: data.fetch('message')['x'], y: data.fetch('message')['y'])
   end
 
   private
