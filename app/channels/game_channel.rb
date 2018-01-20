@@ -4,17 +4,30 @@ class GameChannel < ApplicationCable::Channel
     user_joined_channel
   end
 
+  def unsubscribed
+    deactivate_user
+    send_left_info
+  end
+
   def user_left(data)
     save_user_position(data)
+    deactivate_user
+    send_left_info
+  end
+
+  private
+
+  def deactivate_user
     current_user.player.update(active: false)
+  end
+
+  def send_left_info
     ActionCable.server.broadcast(
       'game_channel',
       user_id: current_user.id,
       method: 'user_left'
     )
   end
-
-  private
 
   def save_user_position(data)
     current_user.player.update(x: data.fetch('message')['x'],
