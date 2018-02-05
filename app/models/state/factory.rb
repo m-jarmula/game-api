@@ -3,7 +3,8 @@ module State
     def types
       {
         title: Title,
-        town: Town
+        town: Town,
+        battle: Battle
       }
     end
   end

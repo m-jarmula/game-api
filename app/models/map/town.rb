@@ -109,6 +109,25 @@ module Map
             width: 32,
             x: 288,
             y: 96
+          },
+          {
+           height: 32,
+           id: 6,
+           name: 'enemy_spawner1',
+           properties: {
+             group: 'enemy_spawners',
+             texture: 'snake_image'
+           },
+           propertytypes: {
+             group: 'string',
+             texture: 'string'
+           },
+           rotation: 0,
+           type: 'enemy_spawner',
+           visible: true,
+           width: 32,
+           x: 64,
+           y: 320
           }],
           opacity: 1,
           type: 'objectgroup',

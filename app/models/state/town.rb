@@ -19,7 +19,10 @@ module State
             type: 'image',
             source: 'img/world/message_box.png'
           },
-
+          snake_image: {
+            type: 'image',
+            source: 'img/world/snake.png'
+          },
           player_spritesheet: {
             type: 'spritesheet',
             source: 'img/world/player.png',
@@ -37,7 +40,8 @@ module State
           'doors',
           'npcs',
           'tools',
-          'main_player'
+          'main_player',
+          'enemy_spawners'
         ],
         map: {
           key: 'level_tilemap',
